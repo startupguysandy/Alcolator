@@ -47,24 +47,27 @@
 - (IBAction)buttonPressed:(UIButton *)sender {
     [self.beerPercentTextField resignFirstResponder];
     
-    // First, calculate how much alcohol is in all those beers
+    // first, calculate how much alcohol is in all those beers...
+    
     int numberOfBeers = self.beerCountSlider.value;
-    int ouncesInOneBeerGlass = 12; // Assume they are 12oz beer bottles
+    int ouncesInOneBeerGlass = 12;  //assume they are 12oz beer bottles
     
     float alcoholPercentageOfBeer = [self.beerPercentTextField.text floatValue] / 100;
     float ouncesOfAlcoholPerBeer = ouncesInOneBeerGlass * alcoholPercentageOfBeer;
     float ouncesOfAlcoholTotal = ouncesOfAlcoholPerBeer * numberOfBeers;
     
-    // Now calculate the equivalent amount of wine
-    float ouncesInOneWineGlass = 5;
-    float alcoholPercentageOfWine = 0.13;
+    // now, calculate the equivalent amount of wine...
+    
+    float ouncesInOneWineGlass = 5;  // wine glasses are usually 5oz
+    float alcoholPercentageOfWine = 0.13;  // 13% is average
     
     float ouncesOfAlcoholPerWineGlass = ouncesInOneWineGlass * alcoholPercentageOfWine;
     float numberOfWineGlassesForEquivalentAlcoholAmount = ouncesOfAlcoholTotal / ouncesOfAlcoholPerWineGlass;
     
-    // Decide if to use "beer"/"beers" or "wine"/"wines"
+    // decide whether to use "beer"/"beers" and "glass"/"glasses"
+    
     NSString *beerText;
-	
+    
     if (numberOfBeers == 1) {
         beerText = NSLocalizedString(@"beer", @"singular beer");
     } else {
@@ -80,6 +83,7 @@
     }
     
     // generate the result text, and display it on the label
+    
     NSString *resultText = [NSString stringWithFormat:NSLocalizedString(@"%d %@ contains as much alcohol as %.1f %@ of wine.", nil), numberOfBeers, beerText, numberOfWineGlassesForEquivalentAlcoholAmount, wineText];
     self.resultLabel.text = resultText;
 }
