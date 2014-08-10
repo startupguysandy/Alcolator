@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,7 +25,7 @@
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="151" y="28" width="298" height="30"/>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="51" y="66" width="298" height="30"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -42,14 +43,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="51" y="246" width="298" height="21"/>
-                                </variation>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-qn-juU">
                                 <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="49" y="128" width="302" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="Of3-TP-KfZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Of3-TP-KfZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Of3-TP-KfZ"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="sliderValueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="vXi-bv-5Y3"/>
@@ -60,8 +68,8 @@
                                 <state key="normal" title="Calculate!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="199" width="96" height="30"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="152" y="285" width="96" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aRH-0w-hkv"/>
@@ -70,11 +78,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="POJ-7n-baB" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="246" id="9f2-FU-Oxs"/>
+                            <constraint firstAttribute="centerX" secondItem="c0B-lo-QmK" secondAttribute="centerX" id="AsE-lb-psH"/>
+                            <constraint firstItem="POJ-7n-baB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="35" id="CEI-n3-SLU"/>
+                            <constraint firstItem="ha8-qn-juU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="125" id="MQt-nQ-cyQ"/>
+                            <constraint firstAttribute="centerX" secondItem="ygx-Nq-g22" secondAttribute="centerX" id="XKB-NS-NXx"/>
+                            <constraint firstItem="ygx-Nq-g22" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="66" id="c4q-Uu-7EY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="POJ-7n-baB" secondAttribute="trailing" constant="35" id="caa-xi-Qaj"/>
+                            <constraint firstItem="c0B-lo-QmK" firstAttribute="top" secondItem="POJ-7n-baB" secondAttribute="bottom" constant="18" id="jL6-NK-t7o"/>
+                            <constraint firstAttribute="centerX" secondItem="ha8-qn-juU" secondAttribute="centerX" id="nWJ-io-sIA"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="POJ-7n-baB"/>
                                 <exclude reference="ha8-qn-juU"/>
                                 <exclude reference="c0B-lo-QmK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="XKB-NS-NXx"/>
+                                <exclude reference="c4q-Uu-7EY"/>
+                                <exclude reference="MQt-nQ-cyQ"/>
+                                <exclude reference="nWJ-io-sIA"/>
+                                <exclude reference="9f2-FU-Oxs"/>
+                                <exclude reference="CEI-n3-SLU"/>
+                                <exclude reference="caa-xi-Qaj"/>
+                                <exclude reference="AsE-lb-psH"/>
+                                <exclude reference="jL6-NK-t7o"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -82,6 +112,17 @@
                                 <include reference="POJ-7n-baB"/>
                                 <include reference="ha8-qn-juU"/>
                                 <include reference="c0B-lo-QmK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="XKB-NS-NXx"/>
+                                <include reference="c4q-Uu-7EY"/>
+                                <include reference="MQt-nQ-cyQ"/>
+                                <include reference="nWJ-io-sIA"/>
+                                <include reference="9f2-FU-Oxs"/>
+                                <include reference="CEI-n3-SLU"/>
+                                <include reference="caa-xi-Qaj"/>
+                                <include reference="AsE-lb-psH"/>
+                                <include reference="jL6-NK-t7o"/>
                             </mask>
                         </variation>
                         <connections>
