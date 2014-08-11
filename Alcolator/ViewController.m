@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     // Calls the superslass's implementation
     [super viewDidLoad];
+    NSLog(@"Loaded Wine View");
 
     // Set our primary view's background color to lightGrayColor
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -80,6 +81,8 @@
     // Gets rid of the maximum number of lines on the labels
     self.resultLabel.numberOfLines = 0;
     self.beerCountLabel.numberOfLines = 0;
+    
+    self.title = NSLocalizedString(@"Wine", @"wine");
 }
 
 - (void)viewWillLayoutSubviews {
