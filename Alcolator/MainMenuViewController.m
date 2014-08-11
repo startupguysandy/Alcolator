@@ -29,6 +29,11 @@
     [self.wineButton addTarget:self action:@selector(winePressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.whiskeyButton addTarget:self action:@selector(whiskeyPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.wineButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    [self.whiskeyButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    
+    self.wineButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:40.0];
+    
     self.view = [[UIView alloc] init];
     
     [self.view addSubview:self.wineButton];

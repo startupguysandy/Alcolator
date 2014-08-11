@@ -88,16 +88,16 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    CGRect screen = [[UIScreen mainScreen] bounds];
+    //CGRect screen = [[UIScreen mainScreen] bounds];
     CGFloat viewWidth;
     
-    viewWidth = (self.interfaceOrientation == UIInterfaceOrientationPortrait) ? screen.size.width : screen.size.height;
+    viewWidth = (self.interfaceOrientation == UIInterfaceOrientationPortrait) ? self.view.frame.size.width : self.view.frame.size.height;
 
     CGFloat padding = 20;
     CGFloat itemWidth = viewWidth - padding - padding;
     CGFloat itemHeight = 44;
     
-    self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
+    self.beerPercentTextField.frame = CGRectMake(padding, padding+60, itemWidth, itemHeight);
     
     CGFloat bottomOfTextField = CGRectGetMaxY(self.beerPercentTextField.frame);
     self.beerCountSlider.frame = CGRectMake(padding, bottomOfTextField + padding, itemWidth, itemHeight);
