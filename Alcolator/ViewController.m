@@ -46,10 +46,22 @@
     self.hideKeyboardTapGestureRecognizer = tap;
 }
 
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Wine", @"wine");
+        
+        // As we don't have icons, let's move the title to the middle of the tab
+        [self.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -18)];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     // Calls the superslass's implementation
     [super viewDidLoad];
-    NSLog(@"Loaded Wine View");
 
     // Set our primary view's background color to lightGrayColor
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -82,7 +94,7 @@
     self.resultLabel.numberOfLines = 0;
     self.beerCountLabel.numberOfLines = 0;
     
-    self.title = NSLocalizedString(@"Wine", @"wine");
+    self.view.backgroundColor = [UIColor colorWithRed:0.741 green:0.925 blue:0.714 alpha:1];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -137,6 +149,7 @@
     self.beerCountLabel.text = beerCountText;
     
     [self.beerPercentTextField resignFirstResponder];
+    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d", (int) sender.value]];
 }
 
 - (void)buttonPressed:(UIButton *)sender {

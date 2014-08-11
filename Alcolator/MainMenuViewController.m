@@ -69,8 +69,6 @@
 
     CGFloat bottomOfWineButton = CGRectGetMaxY(self.wineButton.frame);
     self.whiskeyButton.frame = CGRectMake(padding, bottomOfWineButton + padding, itemWidth, itemHeight);
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
